@@ -16,7 +16,7 @@ This Streamlit web application provides a user-friendly interface for high-quali
 
 ## Installation
 Ensure you have the following prerequisites:
-- Python 3.x
+- Python >= 3.9
 - Streamlit
 - PyTorch
 - DeepFilterNet
