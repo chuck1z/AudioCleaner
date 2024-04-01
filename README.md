@@ -24,7 +24,7 @@ Ensure you have the following prerequisites:
 Run
 ```bash
 pip install -r requirements.txt 
-streamlit run app.py  # Assuming your code is in app.py
+streamlit run main.py
 ```
 
 ## About DeepFilterNet
