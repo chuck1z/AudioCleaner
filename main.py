@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import librosa
 import torch
 
-st.title("Basically a better Adobe's Enhance Speech")
+st.title("Probably(?) a better Adobe Enhance Speech")
 st.subheader("Made possible thanks to DeepFilterNet")
 
 uploaded_file = st.file_uploader("Upload your audio file here")
