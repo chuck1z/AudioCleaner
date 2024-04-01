@@ -2,17 +2,17 @@
 This Streamlit web application provides a user-friendly interface for high-quality audio noise reduction powered by the DeepFilterNet framework.
 
 ## Features
-Simple Audio Upload: Drag and drop your audio files (WAV, MP3, etc.) directly into the web app.
-Audio Playback: Preview both the original audio and the cleaned version.
-Spectrogram Visualizations: Compare the before and after spectrograms to visually understand the noise reduction process.
-Powered by DeepFilterNet: Leverages the robust deep learning capabilities of DeepFilterNet for superior results.
+* Simple Audio Upload: Drag and drop your audio files (WAV, MP3, etc.) directly into the web app.</br>
+* Audio Playback: Preview both the original audio and the cleaned version.</br>
+* Spectrogram Visualizations: Compare the before and after spectrograms to visually understand the noise reduction process.</br>
+* Powered by DeepFilterNet: Leverages the robust deep learning capabilities of DeepFilterNet for superior results.</br>
 
 ## How to Use
-Upload your audio file.
-Preview the original audio.
-Click the 'Clean Audio' button.
-Listen to the enhanced audio.
-Compare spectrograms for a deeper look at the results.
+1. Upload your audio file.
+2. Preview the original audio.
+3. Click the 'Clean Audio' button.
+4. Listen to the enhanced audio.
+5. Compare spectrograms for a deeper look at the results.
 
 ## Installation
 Ensure you have the following prerequisites:
