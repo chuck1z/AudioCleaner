@@ -19,8 +19,7 @@ Ensure you have the following prerequisites:
 - Python 3.x
 - Streamlit
 - PyTorch
-- DeepFilterNet (Refer to their installation instructions: https://github.com/Rikorose/DeepFilterNet)
-
+- DeepFilterNet
 Run
 ```bash
 pip install -r requirements.txt 
