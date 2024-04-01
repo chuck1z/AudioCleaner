@@ -16,15 +16,15 @@ This Streamlit web application provides a user-friendly interface for high-quali
 
 ## Installation
 Ensure you have the following prerequisites:
-- Python 3.x
+- Python >= 3.9
 - Streamlit
 - PyTorch
 - DeepFilterNet
 
 Run
 ```bash
-git clone https://github.com/chuck1z/streamlit-audio-cleaner
-cd streamlit-audio-cleaner
+git clone https://github.com/chuck1z/AudioCleaner
+cd AudioCleaner
 pip install -r requirements.txt 
 streamlit run main.py
 ```

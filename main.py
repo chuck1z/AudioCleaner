@@ -43,7 +43,7 @@ if uploaded_file is not None:
         # Enhanced audio spectrogram
         enhanced_spec = librosa.feature.melspectrogram(y=enhanced_numpy.squeeze(), sr=sample_rate)
         librosa.display.specshow(librosa.power_to_db(enhanced_spec, ref=np.max), sr=sample_rate, x_axis='time', y_axis='mel', ax=axs[1])
-        axs[1].set(title='Enhanced Audio Spectrogram')
+        axs[1].set(title='Cleaned Audio Spectrogram')
 
         st.pyplot(fig)
 
