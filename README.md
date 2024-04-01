@@ -23,8 +23,8 @@ Ensure you have the following prerequisites:
 
 Run
 ```bash
-git clone https://github.com/chuck1z/streamlit-audio-cleaner
-cd streamlit-audio-cleaner
+git clone https://github.com/chuck1z/AudioCleaner
+cd AudioCleaner
 pip install -r requirements.txt 
 streamlit run main.py
 ```
