@@ -1,3 +1,5 @@
+
+
 # Adobe Enhance Speech Alternative with DeepFilterNet
 
 This Streamlit web application provides a user-friendly interface for high-quality audio noise reduction powered by the DeepFilterNet framework.
@@ -26,6 +28,7 @@ Ensure you have the following prerequisites:
 - Streamlit
 - PyTorch
 - DeepFilterNet
+- ffmpeg
 
 ### Quick Start
 
