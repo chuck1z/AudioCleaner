@@ -45,11 +45,21 @@ if uploaded_file is not None:
     if st.button('Clean Audio'):
         audio_stream = io.BytesIO(raw_audio)
         model, df_state, _ = init_df()
-        # Compatible audio loading
+        # Audio loading with soundfile fallback for compatibility across torchaudio versions
         try:
-            waveform, sample_rate = torchaudio.load(audio_stream, backend='soundfile')
-        except TypeError:
             waveform, sample_rate = torchaudio.load(audio_stream)
+        except Exception:
+            audio_stream.seek(0)
+            data, sample_rate = sf.read(audio_stream, dtype='float32')
+            waveform = torch.from_numpy(data)
+            if waveform.ndim == 1:
+                waveform = waveform.unsqueeze(0)
+            else:
+                waveform = waveform.t()
+
+        if sample_rate != df_state.sr():
+            waveform = resample(waveform, sample_rate, df_state.sr())
+            sample_rate = df_state.sr()
 
         enhanced = enhance(model, df_state, waveform)
         enhanced_numpy = enhanced.cpu().numpy()
