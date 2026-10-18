@@ -1,10 +1,11 @@
 deepfilternet
 librosa
 matplotlib
-numpy
+numpy<2.0.0
 pydub
 soundfile
 streamlit
 torch
 torchaudio
 ffmpeg-python
+torchcodec

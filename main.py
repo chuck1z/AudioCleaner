@@ -1,17 +1,29 @@
+import sys
+import types
+import io
+import os
+import tempfile
+import subprocess
 import streamlit as st
 import numpy as np
-import io
 import pydub
-from df.enhance import enhance, init_df, save_audio
 import soundfile as sf
 import torchaudio
 import matplotlib.pyplot as plt
 import librosa
 import torch
-from torchaudio import AudioMetaData
-import tempfile
-import os
-import subprocess
+
+# --- Backward compatibility shim for DeepFilterNet with modern torchaudio ---
+if "torchaudio.backend.common" not in sys.modules:
+    backend_module = types.ModuleType("torchaudio.backend")
+    common_module = types.ModuleType("torchaudio.backend.common")
+    common_module.AudioMetaData = getattr(torchaudio, "AudioMetaData", None)
+    backend_module.common = common_module
+    sys.modules["torchaudio.backend"] = backend_module
+    sys.modules["torchaudio.backend.common"] = common_module
+
+from df.enhance import enhance, init_df, save_audio
+from df.io import resample
 
 st.title("Probably(?) a better Adobe Enhance Speech")
 st.subheader("Made possible thanks to DeepFilterNet")
@@ -33,7 +45,12 @@ if uploaded_file is not None:
     if st.button('Clean Audio'):
         audio_stream = io.BytesIO(raw_audio)
         model, df_state, _ = init_df()
-        waveform, sample_rate = torchaudio.load(audio_stream, backend='soundfile')
+        # Compatible audio loading
+        try:
+            waveform, sample_rate = torchaudio.load(audio_stream, backend='soundfile')
+        except TypeError:
+            waveform, sample_rate = torchaudio.load(audio_stream)
+
         enhanced = enhance(model, df_state, waveform)
         enhanced_numpy = enhanced.cpu().numpy()
         st.write('Cleaned audio')
